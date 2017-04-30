@@ -6,7 +6,7 @@
 #define OUTPUT_VOLT HIGH
 
 void setup() {
-    pinMode(0, OUTPUT);
+    pinMode(OUTPUT_PIN, OUTPUT);
 }
  
 void loop() {
