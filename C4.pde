@@ -7,6 +7,9 @@ int countDownMs = countDownS * 1000;
 
 class Segment {
 public:
+  Segment() {    
+  }
+
   Segment(float targetTime)
     : targetTime_(targetTime) {
   }
@@ -36,10 +39,14 @@ public:
     return currentTime_ >= targetTime_;
   }
 
+  void setTargetTime(float time) {
+    targetTime_ = time;
+  }
+
 private:
     float currentTime_ = 0.f;
     float targetTime_ = 0.f;
-}
+};
 
 int currentSegment = 0;
 Segment segments[SEGMENTS];
@@ -50,7 +57,7 @@ void setup() {
   float j = static_cast<float>(countDownMs);
 
   for (int i = 0; i < SEGMENTS; ++i)
-    segments[i] = j /= 2.f;
+    segments[i].setTargetTime(j /= 2.f);
 }
 
 void loop() {
